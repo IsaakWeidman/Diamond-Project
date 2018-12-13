@@ -1,9 +1,8 @@
-public class DiamondsProject {
-	public static void main(String [] args) {
+public class DiamondsProject
+{
+	public static void main(String[] args)
+	{
+		Scanner diamonds = new Scanner(new FileReader("diamonds.txt"));
 
-	}// end main()
-
-	public static void getData() {
-		
 	}
 }
