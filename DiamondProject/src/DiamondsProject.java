@@ -4,6 +4,6 @@ public class DiamondsProject {
 	}// end main()
 
 	public static void getData() {
-		
+
 	}
 }
