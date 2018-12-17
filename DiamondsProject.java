@@ -6,10 +6,11 @@ public class DiamondsProject {
 			File inputFile = new File("diamonds.csv");
 			Scanner splitter;
 			List<String> data = new ArrayList<>;
-			String[][] chart
+			String[][] chart;
 
 			data = getData(inputFile);
 
+			chart = new String[11][chart.size()];
 			splitter = new Scanner(data).useDelimiter("\\,");
 
 	}// end main()
