@@ -7,10 +7,17 @@ public class DiamondProject {
 		File inputFile = new File("diamonds.csv");
 		List<String> data = new ArrayList<>();
 		String[][] chart;
+
+		chart = toChart(data, 11);
+
+		List<String> fair = getPrices(chart, "fair");
+		List<String> good = new ArrayList<>();
+		List<String> ideal = new ArrayList<>();
+		List<String> veryGood = new ArrayList<>();
+		List<String> premium = new ArrayList<>();
 		
 		data = getData(inputFile);
-		
-		chart = toChart(data, 11);
+
 		
 //		for(int row = 0; row < chart.length; row++) {
 //			for(int col = 0; col < chart[0].length; col++) {
@@ -48,8 +55,7 @@ public class DiamondProject {
 	
 	//Turns a list of comma seperated values into a chart format.
 	public static String[][] toChart(List<String> list, int numCols) {
-		
-		Scanner splitter;
+
 		String[][] chart = new String[list.size()][numCols];
 		
 		for(int i = 0; i < chart.length; i++) {
@@ -60,4 +66,20 @@ public class DiamondProject {
 		
 		return chart;
 	}//end toChart
+
+
+	public static List<Double> getPrices(String[][] chart, String cut) {
+
+		List<Double> prices = new ArrayList<>();
+
+		for(int i = 0; i < chart.length; i++) {
+
+			if(chart[i][2].equals(cut)) {
+
+				prices.add(Double.parseDouble(chart[i][7]));
+			}
+		}
+
+		return prices;
+	}
 }
