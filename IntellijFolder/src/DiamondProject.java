@@ -1,5 +1,4 @@
-import java.util.*
-		;
+import java.util.*;
 import java.io.*;
 
 public class DiamondProject {
@@ -19,7 +18,7 @@ public class DiamondProject {
 //			}
 //			System.out.println();
 //		}
-		
+
 	}// end main()
 	
 	
