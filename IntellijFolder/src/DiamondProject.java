@@ -8,24 +8,38 @@ public class DiamondProject {
 		List<String> data = new ArrayList<>();
 		String[][] chart;
 
-		chart = toChart(data, 11);
-
-		List<String> fair = getPrices(chart, "fair");
-		List<String> good = new ArrayList<>();
-		List<String> ideal = new ArrayList<>();
-		List<String> veryGood = new ArrayList<>();
-		List<String> premium = new ArrayList<>();
+		List<Double> fair;
+		List<Double> good;
+		List<Double> veryGood;
+		List<Double> ideal;
+		List<Double> premium;
 		
 		data = getData(inputFile);
-
+		chart = toChart(data, 11);
 		
+		fair = getPrices(chart, "fair");
+		good = getPrices(chart, "good");
+		veryGood = getPrices(chart, "very good");
+		ideal = getPrices(chart, "ideal");
+		premium = getPrices(chart, "premium");
+
+		System.out.printf
+				("The average prices for each cut type are as follows\n" +
+				"Fair:\t\t%f\n" +
+				"Good:\t\t%f\n" +
+				"Very good:\t%f\n" +
+				"Ideal:\t\t%f\n" +
+				"Premuim:\t%f\n",
+						average(fair), average(good), average(veryGood), average(ideal), average(premium));
+		
+		
+//		//Print out data to the screen.
 //		for(int row = 0; row < chart.length; row++) {
 //			for(int col = 0; col < chart[0].length; col++) {
 //				System.out.print(chart[row][col] + ", ");
 //			}
 //			System.out.println();
 //		}
-
 	}// end main()
 	
 	
@@ -67,19 +81,38 @@ public class DiamondProject {
 		return chart;
 	}//end toChart
 
+	
 
 	public static List<Double> getPrices(String[][] chart, String cut) {
 
 		List<Double> prices = new ArrayList<>();
 
 		for(int i = 0; i < chart.length; i++) {
-
-			if(chart[i][2].equals(cut)) {
+			
+			if(chart[i][2].toLowerCase().equals(cut)) {
 
 				prices.add(Double.parseDouble(chart[i][7]));
 			}
 		}
 
 		return prices;
+	}
+	
+	
+	
+	public static double average(List<Double> list) {
+		
+		double sum = 0, avg;
+		int counter = 0;
+		
+		for(Double d : list) {
+		
+			sum = sum + d;
+			counter++;
+		}
+		
+		avg = sum / counter;
+		
+		return avg;
 	}
 }
