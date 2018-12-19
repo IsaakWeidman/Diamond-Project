@@ -30,7 +30,7 @@ public class DiamondProject {
 				"Good:\t\t$%f\n" +
 				"Very good:\t$%f\n" +
 				"Ideal:\t\t$%f\n" +
-				"Premuim:\t$%f\n",
+				"Premium:\t$%f\n",
 						average(fair), average(good), average(veryGood), average(ideal), average(premium));
 		
 		
