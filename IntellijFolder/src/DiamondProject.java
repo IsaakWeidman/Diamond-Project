@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.*;
 import java.io.*;
 
@@ -25,11 +26,11 @@ public class DiamondProject {
 
 		System.out.printf
 				("The average prices for each cut type are as follows\n" +
-				"Fair:\t\t%f\n" +
-				"Good:\t\t%f\n" +
-				"Very good:\t%f\n" +
-				"Ideal:\t\t%f\n" +
-				"Premuim:\t%f\n",
+				"Fair:\t\t$%f\n" +
+				"Good:\t\t$%f\n" +
+				"Very good:\t$%f\n" +
+				"Ideal:\t\t$%f\n" +
+				"Premuim:\t$%f\n",
 						average(fair), average(good), average(veryGood), average(ideal), average(premium));
 		
 		
@@ -112,7 +113,9 @@ public class DiamondProject {
 		}
 		
 		avg = sum / counter;
-		
+
+		avg = Double.parseDouble(new DecimalFormat("#.##").format(avg));
+
 		return avg;
 	}
 }
