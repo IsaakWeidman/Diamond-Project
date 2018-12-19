@@ -4,11 +4,13 @@ import java.io.*;
 
 public class DiamondProject {
 	public static void main(String [] args) {
-		
+
+		//Reads in file
 		File inputFile = new File("diamonds.csv");
 		List<String> data = new ArrayList<>();
 		String[][] chart;
 
+		//Lists of prices for each cut quality
 		List<Double> fair;
 		List<Double> good;
 		List<Double> veryGood;
@@ -33,14 +35,7 @@ public class DiamondProject {
 				"Premium:\t$%f\n",
 						average(fair), average(good), average(veryGood), average(ideal), average(premium));
 		
-		
-//		//Print out data to the screen.
-//		for(int row = 0; row < chart.length; row++) {
-//			for(int col = 0; col < chart[0].length; col++) {
-//				System.out.print(chart[row][col] + ", ");
-//			}
-//			System.out.println();
-//		}
+
 	}// end main()
 	
 	
@@ -68,7 +63,7 @@ public class DiamondProject {
 	
 	
 	
-	//Turns a list of comma seperated values into a chart format.
+	//Turns a list of comma separated values into a chart format.
 	public static String[][] toChart(List<String> list, int numCols) {
 
 		String[][] chart = new String[list.size()][numCols];
@@ -83,7 +78,7 @@ public class DiamondProject {
 	}//end toChart
 
 	
-
+	//Returns the a list of all of the prices of a certain cut quality
 	public static List<Double> getPrices(String[][] chart, String cut) {
 
 		List<Double> prices = new ArrayList<>();
@@ -97,10 +92,10 @@ public class DiamondProject {
 		}
 
 		return prices;
-	}
+	}//end getPrices
 	
 	
-	
+	//Calculates the average from a list of doubles
 	public static double average(List<Double> list) {
 		
 		double sum = 0, avg;
@@ -114,8 +109,9 @@ public class DiamondProject {
 		
 		avg = sum / counter;
 
+		//Used to change the long double into a price format
 		avg = Double.parseDouble(new DecimalFormat("#.##").format(avg));
 
 		return avg;
-	}
+	}//end average
 }
